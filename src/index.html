@@ -1,19 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Carrinho de Compras - Produtos Praianos</title>
 </head>
-
 <body>
-    <h1>Carrinho de Compras Online</h1>
-    <p>Simule um carrinho de compras adicionando produtos, visualizando o total e gerenciando seu orçamento.</p>
-    <p>As interações serão feitas por meio de <strong>prompt()</strong> para entrada de dados e <strong>alert()</strong>
-        para exibição das informações.</p>
 
-    <script src="index.js"></script> <!-- Conectado ao arquivo index.js -->
+    <div class="header-image">
+        <img src="https://i.postimg.cc/XYnyydJS/6ec22523712cb70aa28f19f88324a375-removebg-preview.png" alt="Imagem no Footer">
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="cart-icon" onclick="mostrarModalCarrinho()" aria-label="Abrir carrinho">
+                <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Carrinho">
+                <span id="cart-count">0</span>
+            </div>
+
+            <nav>
+                <ul class="menu">
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre" onclick="mostrarModalSobre()">Sobre</a></li>
+                    <li><a href="#contato" onclick="mostrarModalContato()">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="produtos" class="product-list">
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP3SdWjkzhX21OgNcBWw970wSFWx1TRoXsWZcHP5MHxOcFuuW3nxMzcBc8-2YlqC8cY1M&usqp=CAU" alt="Prancha de Surf">
+                    <span>Prancha de Surf - R$ 800,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-0" aria-label="Quantidade de Prancha de Surf">
+                    <button onclick="adicionarProduto(0)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://akapanda.com.br/wp-content/uploads/2023/07/conjunto-mergulho-praia-feminino-manga-longa-mergulho-maio-roupa-praia-moda-roupa-banho-estampa-conjunto-tankini-aka-panda-azul-claro.jpg" alt="Roupão de Praia">
+                    <span>Conjunto de Praia - R$ 150,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-1" aria-label="Quantidade de Roupão de Praia">
+                    <button onclick="adicionarProduto(1)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuzhL3-xkYoG3w6TIJggRrHxAoICmmWGm6sg&s" alt="Óculos de Sol">
+                    <span>Óculos de Sol - R$ 120,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-2" aria-label="Quantidade de Óculos de Sol">
+                    <button onclick="adicionarProduto(2)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://paraisoseu.com.br/cdn/shop/files/Chapeufemininodepraiaemilia13_1024x.jpg?v=1708293744" alt="Chapéu de Praia">
+                    <span>Chapéu de Praia - R$ 60,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-3" aria-label="Quantidade de Chapéu de Praia">
+                    <button onclick="adicionarProduto(3)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://cdn.awsli.com.br/800x800/1731/1731439/produto/192698086/3bf36816ea.jpg" alt="Chinelo">
+                    <span>Chinelo - R$ 30,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-4" aria-label="Quantidade de Chinelo">
+                    <button onclick="adicionarProduto(4)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://images.tcdn.com.br/img/img_prod/1099616/dermattive_protetor_solar_corporal_fps60_solare60_77_1_864880addba3104e865841e77c86ae5f.png" alt="Protetor Solar">
+                    <span>Protetor Solar - R$ 50,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-5" aria-label="Quantidade de Protetor Solar">
+                    <button onclick="adicionarProduto(5)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://a-static.mlcdn.com.br/450x450/bermuda-short-masculino-praia-mauricinho-verao-calcao-tactel-estampado-jan-produtos/janproduto/75aa3bac692711ed8fef4201ac185019/43a3eca3dc86035aa3831045c344ce58.jpeg" alt="Bermuda de Praia">
+                    <span>Bermuda de Praia - R$ 90,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-6" aria-label="Quantidade de Bermuda de Praia">
+                    <button onclick="adicionarProduto(6)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="product">
+                    <img src="https://images.tcdn.com.br/img/img_prod/691415/toalha_de_praia_gigante_com_franja_100_algodao_dohler_4001_1_5ad94fd64e52ca3faedf12d7d82ebe08.jpg" alt="Toalha de Praia">
+                    <span>Toalha de Praia - R$ 70,00</span>
+                    <input type="number" min="0" max="10" value="0" id="quantidade-7" aria-label="Quantidade de Toalha de Praia">
+                    <button onclick="adicionarProduto(7)">Adicionar ao Carrinho</button>
+                </div>
+            </section>
+        </main>
+
+       <!-- Modal Carrinho -->
+       <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalCarrinho()">&times;</span>
+            <h2>Carrinho de Compras</h2>
+            <div id="modal-cart-items" class="modal-cart-items"></div>
+            <div id="modal-total" class="modal-total"></div>
+            <button class="finalizar-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+        <!-- Modal Pagamento -->
+        <div id="modal-pagamento" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalPagamento()" aria-label="Fechar modal">&times;</span>
+                <h2>Escolha o Método de Pagamento</h2>
+                <button onclick="processarPagamento('PIX')">PIX</button>
+                <button onclick="processarPagamento('Cartão de Crédito')">Cartão de Crédito</button>
+                <button onclick="processarPagamento('Cartão de Débito')">Cartão de Débito</button>
+                <button onclick="processarPagamento('Boleto')">Boleto</button>
+            </div>
+        </div>
+
+        <!-- Modal Sobre -->
+        <div id="modal-sobre" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalSobre()">&times;</span>
+                <h2>Sobre Nós</h2>
+                <p>Bem-vindo à nossa loja de produtos praianos, o seu destino perfeito para tudo que você precisa para aproveitar o sol, a areia e o mar!
+
+                    Nós somos apaixonados pelo estilo de vida à beira-mar e estamos aqui para trazer a você a essência do verão em cada produto que oferecemos.
+                    
+                    Nossa missão é fornecer uma seleção incrível de produtos que complementem sua experiência à praia. Desde roupas de banho e acessórios até itens de decoração inspirados no mar, nossa loja é um paraíso para os amantes do oceano.
+                    
+                    Trabalhamos com marcas que compartilham nossa paixão pela qualidade e pela sustentabilidade, garantindo que cada item seja não apenas bonito, mas também responsável com o meio ambiente.
+                    
+                    Na nossa loja, você encontrará uma variedade de produtos que atendem a todas as suas necessidades praianas. Nossos biquínis e maiôs são feitos com materiais confortáveis e estilosos, perfeitos para um dia de sol.
+                    
+                    Oferecemos também toalhas de praia macias, chapéus elegantes e protetores solares de alta qualidade para que você possa desfrutar do seu tempo na praia com segurança e conforto.
+                    
+                    Além disso, acreditamos que a experiência do cliente é fundamental. Nossa equipe está sempre pronta para ajudar, oferecendo um atendimento personalizado para garantir que você encontre exatamente o que procura.
+                    
+                    Valorizamos a sua satisfação e nos esforçamos para criar um ambiente acolhedor e amigável.
+                    
+                    Seja você um local ou um visitante, nossa loja é o lugar ideal para se preparar para a sua próxima aventura à beira-mar.
+                    
+                    Junte-se a nós e descubra a magia dos produtos praianos que farão do seu dia de praia uma experiência inesquecível!</p>
+            </div>
+        </div>
+
+        <!-- Modal Contato -->
+        <div id="modal-contato" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModalContato()">&times;</span>
+                <h2>Contato</h2>
+                <form id="contact-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+                <h3>Siga-nos nas redes sociais:</h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-image">
+            <img src="https://i.postimg.cc/13DyGj8f/pngwing-com-removebg-preview.png" alt="Imagem no Footer">
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Sua Loja. Todos os direitos reservados.</p>
+            <ul>
+                <li><a href="#sobre" onclick="mostrarModalSobre()">Sobre Nós</a></li>
+                <li><a href="#contato" onclick="mostrarModalContato()">Contato</a></li>
+                <li><a href="#politica">Política de Privacidade</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        function mostrarModalSobre() {
+            document.getElementById('modal-sobre').style.display = 'block';
+        }
+
+        function fecharModalSobre() {
+            document.getElementById('modal-sobre').style.display = 'none';
+        }
+
+        function mostrarModalContato() {
+            document.getElementById('modal-contato').style.display = 'block';
+        }
+
+        function fecharModalContato() {
+            document.getElementById('modal-contato').style.display = 'none';
+        }
+
+        // Adicione as funções para mostrar e fechar o modal do carrinho e pagamento
+    </script>
 </body>
-
 </html>

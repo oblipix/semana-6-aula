@@ -1,0 +1,354 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    background: linear-gradient(to left, #e8eff1, #ecf1aa);
+
+}
+
+.container {
+    flex: 1; /* Faz com que o container ocupe o espaço restante */
+    display: flex;
+    flex-direction: column; /* Organiza o header, main e footer em coluna */
+}
+
+
+
+.header {
+    background-color: #ffffff4f;
+    width: 100%; /* Largura total */
+    height: 100px; /* Defina uma altura específica para o header */
+    backdrop-filter: blur(50px); /* Aplica o desfoque ao fundo */
+     position: relative; /* Necessário para que o z-index funcione */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra ao redor do header */
+}
+
+
+p{
+    text-align: center; /* Centraliza todo o texto */
+    margin: 20px auto; /* Adiciona margem para centralização */
+    max-width: 600px; /* Limita a largura do texto */
+    padding: 20px; /* Adiciona espaçamento interno */
+    color: #7c7c7c; /* Cor do texto */
+    line-height: 1.6; /* Espaçamento entre linhas */
+   
+}
+
+
+/* Estilos gerais do menu */
+.menu {
+    list-style: none; 
+    margin-top: -40px;
+    padding: 0;
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: center; /* Centraliza o menu */
+    background-color: transparent; /* Cor de fundo do menu */
+     z-index: 100; /* Certifica que o menu esteja à frente de outros elementos */
+    position: relative; /* Permite que o z-index funcione */
+   
+}
+
+  /* Estilos para os itens do menu */
+  .menu li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+  }
+  
+  /* Estilos para os links */
+  .menu li a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #000;
+     font-size: 16px; /* Tamanho da fonte */
+    padding: 10px 20px; /* Espaçamento interno para aumentar o clique */
+    display: block; /* Faz o link ocupar todo o espaço do item */
+    transition: background-color 0.3s ease; /* Animação ao passar o mouse */
+    z-index: 2;
+  }
+  
+  /* Efeito hover */
+  .menu li a:hover {
+    background: linear-gradient(to bottom, #7edffd, #ccf1aa);
+    border-radius: 5px; /* Bordas arredondadas */
+  }
+
+h1 {
+    color: #333;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: 1010px;
+    color: #7edffd;
+    cursor: pointer;
+}
+
+.cart-icon img {
+    margin-right: 10px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os produtos se ajustem em múltiplas linhas */
+    gap: 20px; /* Espaço entre os produtos */
+    margin-top: 20px;
+    padding: 20px; /* Espaçamento interno do main */
+    margin-left: 5%;
+}
+
+.product {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column; /* Alinha a imagem, o texto e o botão verticalmente */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 250px; /* Largura fixa para os produtos */
+    height: 450px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do produto */
+    height: 280px; /* Mantém a proporção da imagem */
+}
+
+button {
+    background: linear-gradient(to bottom, #7edffd, #ccf1aa);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Adiciona espaço acima do botão */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #aeecc3, #eee4ac);
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 2px;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Centraliza verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+   
+}
+
+/* Fechar modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Título do modal */
+.modal-content h2 {
+    margin-top: 0;
+    color: #333; /* Cor do texto */
+}
+
+/* Itens do carrinho */
+.modal-cart-items {
+    margin: 15px 0;
+    max-height: 300px; /* Limite de altura */
+    overflow-y: auto; /* Rolagem vertical se necessário */
+}
+
+/* Total do carrinho */
+.modal-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Botão de finalizar compra */
+.finalizar-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto branco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.finalizar-btn:hover {
+    background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Estilo dos itens da lista */
+.modal-cart-items p {
+    
+    display: flex;
+    justify-content: space-between; /* Alinha o texto e o botão de remover */
+    margin: 5px 0;
+    padding: 10px;
+    background: #f9f9f9; /* Fundo claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ddd; /* Borda sutil */
+}
+
+.modal-cart-items input[type="number"] {
+    width: 50px; /* Largura do input */
+    margin-left: 10px;
+   
+   
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.3); /* Fundo com transparência */
+    backdrop-filter: blur(10px); /* Aplica o desfoque ao fundo */
+    position: relative; /* Necessário para o pseudo-elemento */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5); /* Sombra na parte superior */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    z-index: 10; /* Garante que o footer esteja à frente */
+    margin-top: 80px; /* Espaçamento em relação ao conteúdo acima */
+}
+
+footer:before {
+    content: ""; /* Necessário para criar o pseudo-elemento */
+    position: absolute; /* Permite que a onda fique no topo do footer */
+    top: -20px; /* Ajusta a posição da onda */
+    left: 0;
+    right: 0;
+    height: 40px; /* Altura da onda */
+    background:#aeecc3; 
+    border-radius: 50%; /* Arredondamento para criar o efeito de onda */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do footer */
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+footer p {
+    margin: 20px 0 0;
+}
+
+
+.footer-image {
+    position: absolute; /* Mantém a imagem em relação ao footer */
+    text-align: center; /* Centraliza a imagem horizontalmente */
+    margin-left: 1050px;
+    margin-top: 1300px;
+    z-index: 100;
+}
+
+.footer-image img {
+    width: 300px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+.header-image {
+    position: absolute; /* Mantém a imagem em relação ao footer */
+    text-align: center; /* Centraliza a imagem horizontalmente */
+    margin-left: -40px;
+    margin-top: -50px;
+    z-index: 100;
+}
+
+.header-image img {
+    width: 220px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Formulário de contato */
+form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ddd; /* Borda sutil */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 15px;
+}
+
+/* Botão de enviar */
+form button {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto branco */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Links de redes sociais */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 15px; /* Espaçamento entre links */
+    color: #4CAF50; /* Cor dos links */
+    text-decoration: none; /* Sem sublinhado */
+}
+
+.social-links a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
