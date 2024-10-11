@@ -20,7 +20,7 @@ function adicionarProduto(index) {
             produtoExistente.quantidade += quantidade;
         } else {
             carrinho.push({ index, quantidade });
-        }
+3        }
         document.getElementById('cart-count').innerText = carrinho.reduce((acc, item) => acc + item.quantidade, 0); // Atualiza contador
         alert(`Adicionado ${quantidade} item(s) ao carrinho!`);
     } else {
@@ -107,4 +107,22 @@ function processarPagamento(metodo) {
     carrinho = []; // Limpa o carrinho após o pagamento
     atualizarCarrinho(); // Atualiza o carrinho após o pagamento
     fecharModalPagamento(); // Fecha o modal de pagamento
+}
+
+
+
+function mostrarModalSobre() {
+    document.getElementById('modal-sobre').style.display = 'block';
+}
+
+function fecharModalSobre() {
+    document.getElementById('modal-sobre').style.display = 'none';
+}
+
+function mostrarModalContato() {
+    document.getElementById('modal-contato').style.display = 'block';
+}
+
+function fecharModalContato() {
+    document.getElementById('modal-contato').style.display = 'none';
 }
