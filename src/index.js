@@ -28,7 +28,7 @@ function adicionarProduto(index) {
     }
 }
 
-// Função para atualizar o carrinho no modal
+// Função para atualizar o carrinho no modall
 function atualizarCarrinho() {
     const modalCartItems = document.getElementById('modal-cart-items');
     const modalTotal = document.getElementById('modal-total');
